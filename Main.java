@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+
+ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AsignacionTurnos {
@@ -47,7 +48,30 @@ public class AsignacionTurnos {
 
         System.out.println("\nTurnos asignados:");
         for (String t : turnos) {
+        }
             System.out.println(t);
+
+            System.out.println("Su número de turno es: " + (colaEspera.size())); 
+            System.out.println(" ");
+
+            if (colaEspera.size() == 1) {
+              
+                turnoActual = 1;
+                Thread.sleep(5000); // Espera 5 segundos para llamar al primer paciente
+                System.out.println("¡Turno " + turnoActual + "! " + colaEspera.poll() + " puede pasar.");
+                System.out.println(" ");
+            } else if (colaEspera.size() > 1) {
+                
+                System.out.println("Turno actual: " + turnoActual);
+                System.out.println("Tiempo restante: 6 segundos");
+                System.out.println("Turnos pendientes: " + (colaEspera.size() - 1));
+                System.out.println(" ");
+            }
+            while (true) {
+                    
+                Thread.sleep(6000); 
+                    
+            }
         }
     }
-}
+ }
